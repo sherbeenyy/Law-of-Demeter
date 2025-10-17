@@ -61,9 +61,15 @@ A `Customer` wants to pay a `Store`. To do this, they need to get money from the
 #### The Violation
 
 * **OOP Violation**: The `Store` object reaches through the `Customer` object to get its internal `Wallet` object and then pulls money from it (`customer.getWallet().debit()`). The `Store` knows too much about the `Customer`'s internal parts.
+## ![OOP Violation](imgs/oopV.png)
+
 * **Functional Violation**: The `store` function reaches deep into the `customer` data structure to modify a nested value (`customer['wallet']['money'] -= amount`). The function is now tightly coupled to the exact shape of the customer data.
+## ![Functional Violation](imgs/functionalV.png)
 
 #### The Refactored Solution
 
 * **OOP Fix**: The `Store` simply tells the `Customer` object to pay (`customer.makePayment()`). The `Customer` is responsible for managing its own wallet internally.
+## ![OOP reafactor](imgs/oopR.png)
+
 * **Functional Fix**: The `store` function calls a `customer_pays()` helper function, delegating the task of handling the payment logic. The main function doesn't need to know how the customer data is structured.
+## ![OOP Violation](imgs/functionalR.png)
