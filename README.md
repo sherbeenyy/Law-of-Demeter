@@ -69,7 +69,7 @@ A `Customer` wants to pay a `Store`. To do this, they need to get money from the
 #### The Refactored Solution
 
 * **OOP Fix**: The `Store` simply tells the `Customer` object to pay (`customer.makePayment()`). The `Customer` is responsible for managing its own wallet internally.
-## ![OOP reafactor](imgs/oopR.png)
+## ![OOP Refactor](imgs/oopR.png)
 
 * **Functional Fix**: The `store` function calls a `customer_pays()` helper function, delegating the task of handling the payment logic. The main function doesn't need to know how the customer data is structured.
-## ![OOP Violation](imgs/functionalR.png)
+## ![functional Refactor](imgs/functionalR.png)
